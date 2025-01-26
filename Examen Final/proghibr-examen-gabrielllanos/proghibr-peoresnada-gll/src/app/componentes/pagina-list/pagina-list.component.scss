@@ -1,0 +1,45 @@
+.imgVistaPrevia {
+    width: 22%;
+}
+
+.imgVistaPrevia:hover {
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #000;
+}
+
+.iconDelete {
+    padding-left: 5px;
+    width: 45px;
+    height: 45px;
+}
+
+.tituloLista {
+    font-weight: bold;
+}
+
+.tituloPublicacion {
+    font-size: 1.5em;
+    font-weight: bold;
+    padding:  20px 20px 20px 10px;
+    margin: 0;
+}
+
+.ion-text-center {
+    font-size: 12px;
+}
+
+.modalEliminar {
+    display: grid; 
+    place-items: center; 
+    height: 100%; 
+    text-align: center;
+}
+
+.modalDetalle {
+    display: grid; 
+    place-items: center; 
+    height: 100%; 
+    text-align: center;
+}

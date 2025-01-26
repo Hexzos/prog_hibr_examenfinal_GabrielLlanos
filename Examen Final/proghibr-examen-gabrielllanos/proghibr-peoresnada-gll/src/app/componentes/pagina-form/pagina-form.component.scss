@@ -1,0 +1,15 @@
+.fotoMiniatura {
+    height: 70%;
+    width: 80%;
+    margin: 1rem auto;
+}
+
+.ingresoImagen {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    grid-auto-rows: minmax(100px, auto);
+    align-items: center;
+  }
+
+ 

@@ -1,0 +1,74 @@
+<ion-card>
+  <ion-card-content>
+  
+    <ion-item lines="none">
+      <ion-label position="stacked">Título</ion-label> 
+      <ion-input 
+        [(ngModel)]="tituloStr"
+        required minlength="5"
+        #tituloInput="ngModel"
+        placeholder="Ingrese el título de la publicación"
+        [ngModelOptions]="{standalone: true}"
+      />
+    </ion-item>
+
+    <ion-list class="ingresoImagen" lines="none">
+          <ion-item lines="none" slot="start">
+            <ion-button expand="block" color="dark" (click)="tomarFoto('camera')">
+              <ion-icon name="camera-outline" slot="start" color="light"></ion-icon>
+              <ion-label color="light">Fotografía</ion-label>
+            </ion-button>
+          </ion-item>
+  
+        <ion-item slot="end">
+          <ion-thumbnail *ngIf="imagen" class="fotoMiniatura"> 
+            <img [src]="imagen" alt="Vista previa de la imagen"> 
+          </ion-thumbnail>
+        </ion-item>
+    
+  </ion-list>
+
+  <ion-item lines="none"> 
+    <ion-label position="stacked">Descripción</ion-label> 
+    <ion-textarea
+      [(ngModel)]="descripcionStr" 
+      required minlength="20"
+      #descripcionInput="ngModel"
+      placeholder="Ingrese la descripción de la publicación" 
+      [ngModelOptions]="{standalone: true}">
+    </ion-textarea>
+  </ion-item>
+   
+    
+
+    <ion-item lines="none">
+      <ion-button
+        expand="block" 
+        (click)="onClick()"
+        [disabled]="!tituloInput.valid || !descripcionInput.valid"
+        aria-label="Botón para guardar la publicación">
+        Guardar
+      </ion-button>
+    </ion-item>
+
+    <ion-item lines="none" *ngIf="!tituloInput.valid && !tituloInput.pristine">
+      <ion-text color="danger" position="stacked">
+        El título es requerido y debe tener al menos 5 caracteres
+      </ion-text>
+    </ion-item>
+
+    <ion-item lines="none" *ngIf="!descripcionInput.valid && !descripcionInput.pristine">
+      <ion-text color="danger" position="stacked">
+        La descripción es requerida y debe tener al menos 20 caracteres
+      </ion-text>
+    </ion-item>
+
+
+  
+  </ion-card-content>
+</ion-card>
+
+  <ion-toast [isOpen]="isToastOpen" 
+    message="Publicación guardada con éxito." 
+    duration="2000" position="top"> 
+  </ion-toast>
